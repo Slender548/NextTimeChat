@@ -55,7 +55,7 @@ export default function Page(): JSX.Element {
                 <p>{room.room}</p>
               </div>
               <button
-                onClick={() => gotoRoom(room.id)}
+                onClick={() => gotoRoom(room.room)}
                 className="w-4/12 border h-full transition rounded-md bg-blue-500 hover:bg-blue-700 active:bg-blue-950 p-1 justify-center items-center"
               >
                 Войти

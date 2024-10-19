@@ -14,9 +14,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [nickname, setNickname] = useState<string>("");
   const [room] = useState<string>(params.id);
   const message = createRef<HTMLInputElement>();
-  const searchParams = useSearchParams();
   useEffect(() => {
-
     async function fetchMessages() {
       const messages = await getChatMessages(room);
       setMessages(messages);
@@ -29,6 +27,7 @@ export default function Page({ params }: { params: { id: string } }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
+    const { searchParams } = new URL(window.location.href);
     const nick = searchParams.get("nickname");
     if (nick == null) {
       alert("Пожалуйста введите никнейм. Please enter nickname.");

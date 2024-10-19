@@ -6,13 +6,11 @@ import { addMessage } from "@/app/server/db";
 export async function addRoom(formData: FormData) {
     const name = formData.get("name");
     const creator = formData.get("creator");
-    const id = crypto.randomUUID();
-    console.log(name, "," ,creator);
     if (typeof name !== "string" || typeof creator !== "string") {
         return;
     }
-    
-    redirect(`/room/${id}`);
+
+    redirect(`/room/${name}?nickname=${creator}`);
 
 }
 
