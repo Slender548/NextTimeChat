@@ -4,7 +4,7 @@ function seedChats(client: Client) {
     client.query("CREATE TABLE IF NOT EXISTS messages (id SERIAL PRIMARY KEY, room VARCHAR(255), name VARCHAR(255), message VARCHAR(255))");
 }
 
-export function GET(request: Request) {
+export function GET() {
     const client = new Client();
     client.connect();
     seedChats(client);

@@ -14,6 +14,6 @@ export async function getChatMessages(room: string | null) {
 }
 
 export async function getRooms() {
-    const result = await client.query("SELECT DISTINCT ON (room) room, id FROM messages ORDER BY room, id DESC");
+    const result = await client.query("SELECT DISTINCT ON (room) room FROM messages");
     return result.rows;
 }
